@@ -1,0 +1,25 @@
+--TEST--
+Nested calls with a block should be handled correctly.
+--TEMPLATE--
+{% extends 'base.twig' %}
+{% block test %}
+{% include_assets '//foo.js' %}
+{% include_assets '//foo.css' %}
+{% include "foo.twig" %}
+{% endblock %}
+--TEMPLATE(base.twig)--
+{{ output_css() }}
+{% block test %}{% endblock %}
+{{ output_javascript() }}
+--TEMPLATE(foo.twig)--
+{% include_assets '//bar.css' %}
+{% include_assets '//foobar.js' %}
+--DATA--
+return array()
+--EXPECT--
+<link rel="stylesheet" href="//foo.css"/>
+<link rel="stylesheet" href="//bar.css"/>
+
+<script src="//foo.js" type="text/javascript"></script>
+<script src="//foobar.js" type="text/javascript"></script>
+

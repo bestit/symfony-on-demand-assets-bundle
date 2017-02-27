@@ -1,0 +1,39 @@
+{
+    "name": "bestit/on-demand-assets-bundle",
+    "keywords": [
+        "assets",
+        "css",
+        "javascript",
+        "http2",
+        "bem",
+        "twig"
+    ],
+    "description": "This bundle provides you with an easy way to include assets on demand, but still include them in your header or footer. This can be used for your BEM blocks or facilitates HTTP2.",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Björn Lange",
+            "email": "lange@bestit-online.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "BestIt\\OnDemandAssetsBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BestIt\\OnDemandAssetsBundle\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^7.0",
+        "symfony/symfony": "^3.1",
+        "twig/twig": "1.24.*"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.7",
+        "phpunit/phpunit": "^5.5"
+    }
+}

@@ -1,0 +1,7 @@
+--TEST--
+Checks the empty call to output_css.
+--TEMPLATE--
+{{ output_javascript() }}
+--DATA--
+return array()
+--EXPECT--

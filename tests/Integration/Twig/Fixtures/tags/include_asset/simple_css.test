@@ -1,0 +1,9 @@
+--TEST--
+Checks the simple css call for the asset include.
+--TEMPLATE--
+{% include_assets '//foo.css' %}
+{{ output_css() }}
+--DATA--
+return array()
+--EXPECT--
+<link rel="stylesheet" href="//foo.css"/>

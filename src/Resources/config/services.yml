@@ -1,0 +1,7 @@
+services:
+    bh.app.twig.extension.asset_helper_extension:
+        class:     BestIt\OnDemandAssetsBundle\Twig\AssetHelperExtension
+        arguments: ['@twig.extension.assets']
+        public:    false
+        tags:
+            - { name: twig.extension }

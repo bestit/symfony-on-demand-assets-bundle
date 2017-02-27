@@ -1,0 +1,18 @@
+--TEST--
+Checks the full call for the asset include, with doubles and call sorting.
+--TEMPLATE--
+{% include_assets '//foo.js' %}
+{% include_assets '//foo.css' %}
+{% include_assets '//foo.js' %}
+{% include_assets '//foo.css' %}
+{% include_assets '//bar.css' %}
+{% include_assets '//foobar.js' %}
+{{ output_javascript() }}
+{{ output_css() }}
+--DATA--
+return array()
+--EXPECT--
+<script src="//foo.js" type="text/javascript"></script>
+<script src="//foobar.js" type="text/javascript"></script>
+<link rel="stylesheet" href="//foo.css"/>
+<link rel="stylesheet" href="//bar.css"/>
