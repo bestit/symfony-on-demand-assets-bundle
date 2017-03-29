@@ -2,11 +2,9 @@
 
 namespace BestIt\OnDemandAssetsBundle\Twig\SimpleFunction;
 
-use BestIt\OnDemandAssetsBundle\Twig\SimpleFunction\CallbackTrait;
-use BestIt\OnDemandAssetsBundle\Twig\SimpleFunction\OutputTrait;
-
 /**
  * Outputs the javascript files.
+ *
  * @author lange <lange@bestit-online.de>
  * @package BestIt\OnDemandAssetsBundle
  * @subpackage Twig\SimpleFunction
@@ -18,6 +16,7 @@ class OutputJavascriptCallback
 
     /**
      * Returns the allowed file ending.
+     *
      * @return string
      */
     protected function getAllowedFileEnding(): string
@@ -27,6 +26,7 @@ class OutputJavascriptCallback
 
     /**
      * Returns the asset include template.
+     *
      * @return string
      */
     protected function getAssetIncludeTemplate(): string
