@@ -8,6 +8,7 @@ use Twig_TokenParser;
 
 /**
  * Parses the tag include_assets and inserts it to the compiled node.
+ *
  * @author lange <lange@bestit-online.de>
  * @package BestIt\OnDemandAssetsBundle
  * @subpackage Twig\TokenParser
@@ -16,8 +17,20 @@ use Twig_TokenParser;
 class IncludeAssets extends Twig_TokenParser
 {
     /**
+     * Returns the tag name.
+     *
+     * @return string
+     */
+    public function getTag(): string
+    {
+        return 'include_assets';
+    }
+
+    /**
      * Parses the tag.
+     *
      * @param Twig_Token $token
+     *
      * @return CollectAssetsNode
      */
     public function parse(Twig_Token $token): CollectAssetsNode
@@ -32,14 +45,5 @@ class IncludeAssets extends Twig_TokenParser
         $stream->expect(Twig_Token::BLOCK_END_TYPE);
 
         return new CollectAssetsNode($assets, $token->getLine(), $this->getTag());
-    }
-
-    /**
-     * Returns the tag name.
-     * @return string
-     */
-    public function getTag(): string
-    {
-        return 'include_assets';
     }
 }
