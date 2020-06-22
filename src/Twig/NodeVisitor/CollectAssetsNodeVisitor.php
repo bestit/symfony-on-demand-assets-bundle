@@ -56,6 +56,12 @@ class CollectAssetsNodeVisitor extends Twig_BaseNodeVisitor
         }
 
         if ($node instanceof Twig_Node_Include) {
+            // Workaround to avoid empty template names for embed templates
+            $name = $node->hasAttribute('name') ? $node->getAttribute('name') : null;
+            if (empty($name)){
+                $node->setAttribute('name', $node->getSourceContext()->getPath());
+            }
+
             $this->includes[] = $node->getNode('expr')->getAttribute('value');
         }
 

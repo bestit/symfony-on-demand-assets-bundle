@@ -27,6 +27,8 @@ class CollectAssetsCompiler extends Twig_Node_Module
             $originalNode->lineno,
             $originalNode->tag
         );
+
+        $this->setSourceContext($originalNode->getSourceContext());
     }
 
     /**
